@@ -166,7 +166,7 @@ var Model = {
 */
 var MapFunc = {
 	mapOptions: {
-		center: {lat: 38.031, lng: -78.486},
+		center: {lat: 29.960, lng: -90.065},
     	zoom: 13,
     	disableDefaultUI: true
   	},
