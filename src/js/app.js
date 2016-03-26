@@ -1,6 +1,6 @@
 var categories = ["food","drinks", "coffee", "arts"];
 
-var topPicks = ["Jefferson Vineyards", "Monticello", "University of Virginia", "Downtown Mall", "Ash Lawn-Highland"];
+var topPicks = ["Good Friends", "Corner Pocket", "Cafe Lafittes in Exile", "700 club", "Rawhide"];
 
 var markerIconArray = ['img/top_picks.png', 'img/restaurant.png', 'img/drinks.png', 'img/coffee.png', 'img/arts.png'];
 
@@ -47,7 +47,7 @@ var Model = {
 	*/
 	getFoursquareList: function(placeCategory) {
 		var category = placeCategory;
-		var foursquareAPI = 'https://api.foursquare.com/v2/venues/explore?client_id=EVYYCGOOZ5MFLVODPTDVDSDZEFQXD4TBNDIGOYTWOT0SQZHJ&client_secret=EWZJ2VJM5HRURCEVMSXQ3LEVVPL1PZXND5RHNAFNOYRTH3JS&v=20150826&ll=38.03,-78.49&section=' + category + '&limit=' + Model.resultsLimit + '&radius=2000';
+		var foursquareAPI = 'https://api.foursquare.com/v2/venues/explore?client_id=EVYYCGOOZ5MFLVODPTDVDSDZEFQXD4TBNDIGOYTWOT0SQZHJ&client_secret=EWZJ2VJM5HRURCEVMSXQ3LEVVPL1PZXND5RHNAFNOYRTH3JS&v=20150826&ll=29.96,-90.06&section=' + category + '&limit=' + Model.resultsLimit + '&radius=2000';
 		$.getJSON(foursquareAPI, function(data) {
 			for (var i = 0; i < data.response.groups[0].items.length; i++) {
 				var resultName = data.response.groups[0].items[i].venue.name;
@@ -107,7 +107,7 @@ var Model = {
 
 		var wikiRequestTimeout = setTimeout(function(place) {
         	place.wikiURL('');
-    	}, 5000, place)
+    	}, 5000, place);
 
 		$.ajax({
 			url: wikiAPI,
@@ -174,7 +174,7 @@ var MapFunc = {
 	* @description Called on successful google map script load, initiates coordinates, map, service, and ONE infoWindow
 	*/
 	init: function () {
-		this.coordinates = new google.maps.LatLng(38.031,-78.486);
+		this.coordinates = new google.maps.LatLng(29.960,-90.065);
 		this.map = new google.maps.Map(document.querySelector('#map'), this.mapOptions);
 		this.service = new google.maps.places.PlacesService(this.map);
 		this.infoWindow = new google.maps.InfoWindow();
